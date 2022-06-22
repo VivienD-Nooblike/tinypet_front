@@ -1,23 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Petition } from 'src/models/petition.model';
 import { PetitionsService } from 'src/services/petitions-list.service';
 
 @Component({
-  selector: 'app-petition',
-  templateUrl: './petition.component.html',
-  styleUrls: ['./petition.component.scss']
+  selector: 'app-single-petition',
+  templateUrl: './single-petition.component.html',
+  styleUrls: ['./single-petition.component.scss']
 })
-export class PetitionComponent implements OnInit {
-  @Input() petition!: Petition;
+export class SinglePetitionComponent implements OnInit {
+
+  petition!: Petition;
   buttonText!: string;
 
   constructor(private petitionsService: PetitionsService,
-              private router: Router) {}
-
+              private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.buttonText = "Signer la pétition";
+    const petitionId = this.route.snapshot.params['id'];
+    this.petition = this.petitionsService.getPetitionByID(petitionId);
   }
 
   onSign() {
@@ -30,8 +32,4 @@ export class PetitionComponent implements OnInit {
     }
   }
 
-  onViewPetition() {
-    this.router.navigateByUrl('petitions/${this.petition.id');
-  }
-  
 }

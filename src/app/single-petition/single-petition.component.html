@@ -1,0 +1,11 @@
+<div class="petition" [ngClass]="{ signe: buttonText == 'Retirer sa signature'}">
+  
+  <p>Créée par : {{ petition.creator }} <a routerLink="/petitions">Retour aux pétitions</a> </p>
+  <p>{{ petition.title | uppercase }}</p>
+  <p>Description : {{ petition.description }}</p>
+  <p>
+    <button (click)="onSign()">{{ buttonText }} </button>
+    <span [ngStyle]="{ color: 'rgb(0, '+ petition.nbSigna +', 0)'}">Signé par {{ petition.nbSigna }} personnes</span>
+  </p>
+<p *ngIf="petition.tag">tag : {{ petition.tag }}</p>
+</div>

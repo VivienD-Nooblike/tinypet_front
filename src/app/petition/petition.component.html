@@ -1,8 +1,5 @@
-<h2>Pétition  {{ petition.id }}</h2>
-<p>Créée par : {{ petition.creator }} </p>
-<p>{{ petition.title }}</p>
-<p>Description : {{ petition.description }}</p>
-<p>
-  <button (click)="onSignature()">{{ buttonText }} </button>
-  Signé par {{ petition.signatureNumber }} personnes
-</p>
+<div class="petition" [ngClass]="{ signe: buttonText == 'Retirer sa signature'}">
+  <p>{{ petition.title | uppercase }}, créée par {{ petition.creator }}</p>
+  <p>{{ petition.description }}</p>
+  <button (click)="onViewPetition()">Voir plus</button>
+</div>
