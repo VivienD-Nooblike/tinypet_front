@@ -1,8 +1,8 @@
 export class Petition {  
-  id!: string;
+  id!: number;
   creator!: string;
   title!: string;
   description!: string;
-  nbSigna!: number;
-  tag?: string;
+  signatureNumber!: number;
+  tags?: string;
 }

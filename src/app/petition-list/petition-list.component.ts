@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Petition } from 'src/models/petition.model';
 import { PetitionsService } from 'src/services/petitions-list.service';
 
@@ -9,12 +10,12 @@ import { PetitionsService } from 'src/services/petitions-list.service';
 })
 export class PetitionListComponent implements OnInit {
 
-  petitions!: Petition[];
+  petitions$!: Observable<Petition[]>;
 
   constructor(private petitionsService: PetitionsService) { }
 
   ngOnInit(): void {
-    this.petitions = this.petitionsService.getAllPetitions();
+    this.petitions$ = this.petitionsService.getAllPetitions();
   }
 
 }

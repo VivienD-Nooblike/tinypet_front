@@ -1,6 +1,7 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import * as fr from '@angular/common/locales/fr';
 
 import { AppComponent } from './app.component';
@@ -22,7 +23,8 @@ import { SinglePetitionComponent } from './single-petition/single-petition.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' }

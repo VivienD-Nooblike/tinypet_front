@@ -5,7 +5,7 @@
   <p>Description : {{ petition.description }}</p>
   <p>
     <button (click)="onSign()">{{ buttonText }} </button>
-    <span [ngStyle]="{ color: 'rgb(0, '+ petition.nbSigna +', 0)'}">Signé par {{ petition.nbSigna }} personnes</span>
+    <span [ngStyle]="{ color: 'rgb(0, '+ petition.signatureNumber +', 0)'}">Signé par {{ petition.signatureNumber }} personnes</span>
   </p>
-<p *ngIf="petition.tag">tag : {{ petition.tag }}</p>
+<p *ngIf="petition.tags">tags : {{ petition.tags }}</p>
 </div>

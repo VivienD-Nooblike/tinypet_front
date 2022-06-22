@@ -21,7 +21,7 @@ export class PetitionComponent implements OnInit {
   }
 
   onSign() {
-    if (this.buttonText == "Signer la pétition") {
+    if (this.buttonText === "Signer la pétition") {
       this.petitionsService.SignPetitionById(this.petition.id, 'sign');
       this.buttonText = "Retirer sa signature";
     } else {
@@ -31,7 +31,7 @@ export class PetitionComponent implements OnInit {
   }
 
   onViewPetition() {
-    this.router.navigateByUrl('petitions/${this.petition.id}');
+    this.router.navigateByUrl(`petition/${this.petition.id}`);
   }
   
 }

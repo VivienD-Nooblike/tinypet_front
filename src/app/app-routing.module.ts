@@ -5,7 +5,7 @@ import { PetitionListComponent } from "./petition-list/petition-list.component";
 import { SinglePetitionComponent } from "./single-petition/single-petition.component";
 
 const routes: Routes = [
-  { path: 'petitions/:id', component: SinglePetitionComponent},
+  { path: 'petition/:id', component: SinglePetitionComponent},
   { path: 'petitions', component: PetitionListComponent},
   { path: '', component: LandingPageComponent}
 ]
