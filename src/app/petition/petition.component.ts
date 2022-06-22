@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Petition } from 'src/models/petition.model';
 
 @Component({
   selector: 'app-petition',
@@ -6,20 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./petition.component.scss']
 })
 export class PetitionComponent implements OnInit {
-  id!: string;          // !: pour passer outre la non initialisation au moment de l'écriture de ctruc
-  creator!: string;
-  title!: string;
-  description!: string;
-  //tags!: jsp tablo de string
-  //fields jsp
-  signatureNumber!: number;
+  @Input() petition!: Petition;
+
+  buttonText!: string;
+
+
 
   ngOnInit() {
-    this.id = "1";
-    this.creator = "HU-GO";
-    this.title = "mourir";
-    this.description = "aled";
-    this.signatureNumber = 999;
+    this.buttonText = "Signer la pétition.";
+  }
+
+  onSignature() {
+    if (this.buttonText == "Signer la pétition.") {
+      this.petition.signatureNumber++;
+      this.buttonText = "Déjà signé";
+    } else {
+      this.petition.signatureNumber--;
+      this.buttonText = "Signer la pétition.";
+    }
   }
   
 }

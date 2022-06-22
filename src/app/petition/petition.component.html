@@ -1,5 +1,8 @@
-<h2>Pétition  {{ id }}</h2>
-<p>Créée par : {{ creator }} </p>
-<p>{{ title }}</p>
-<p>{{ description }}</p>
-<p>Signé par {{ signatureNumber }} personnes</p>
+<h2>Pétition  {{ petition.id }}</h2>
+<p>Créée par : {{ petition.creator }} </p>
+<p>{{ petition.title }}</p>
+<p>Description : {{ petition.description }}</p>
+<p>
+  <button (click)="onSignature()">{{ buttonText }} </button>
+  Signé par {{ petition.signatureNumber }} personnes
+</p>
