@@ -31,7 +31,7 @@ export class PetitionComponent implements OnInit {
   }
 
   onViewPetition() {
-    this.router.navigateByUrl('petitions/${this.petition.id');
+    this.router.navigateByUrl('petitions/${this.petition.id}');
   }
   
 }
